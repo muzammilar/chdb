@@ -34,7 +34,7 @@ Things to remember when using chDB:
 Already using a ClickHouse client library? Point it at an embedded chDB engine — same client API, no server.
 
 - [chDB behind @clickhouse/client (Node.js, experimental)](https://github.com/chdb-io/chdb-node): pass a chDB connection into `createClient({ connection })` via `chdb/connection` to run queries in-process.
-- chDB as a clickhouse-connect backend (Python) — *coming soon*: `clickhouse_connect.get_client("chdb://memory")` will run the standard Python client against an in-process engine.
+- [chDB behind clickhouse-connect (Python, experimental)](https://github.com/ClickHouse/clickhouse-connect): `pip install "clickhouse-connect[chdb]"`, then `clickhouse_connect.get_client(interface="chdb")` or `get_client("chdb://memory")` runs the standard Python client against an in-process engine. The backend is maintained in clickhouse-connect.
 
 ## AI agents and integrations
 
