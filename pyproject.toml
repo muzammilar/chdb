@@ -40,10 +40,6 @@ adbc = [
 ]
 dev = ["pytest", "pytest-cov"]
 publish = ["twine", "wheel"]
-# Pull in clickhouse-connect to use chDB as a clickhouse-connect backend
-# (`clickhouse_connect.get_client(backend="chdb")`). clickhouse-connect 1.0+ needs Python 3.10+.
-clickhouse-connect = ["clickhouse-connect>=1.3.0"]
-
 # chdb.durable — Durable Analytical Object: an addressable, single-writer engine
 # whose state lives in object storage you own. The S3-compatible backend
 # (AWS/MinIO/R2, and GCS via its S3 interop endpoint) needs boto3; the native
@@ -61,11 +57,6 @@ durable-azure = ["azure-storage-blob", "chdb-core>=26.7.3"]
 
 [project.scripts]
 chdb = "chdb.__main__:main"
-
-# chDB registers itself with clickhouse-connect through these entry points. clickhouse-connect
-# discovers them at runtime; it never imports chdb directly.
-[project.entry-points."clickhouse_connect.backends"]
-chdb = "chdb.cc_backend:backend"
 
 [project.urls]
 Homepage = "https://clickhouse.com/chdb"
